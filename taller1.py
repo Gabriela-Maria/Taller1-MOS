@@ -38,16 +38,6 @@ Model.x = Var(A, domain=NonNegativeReals)
 Model.obj = Objective(expr = sum(Model.x[i]*precios[i-1] for i in A), sense=minimize)
 
 # Restricciones
-# CONSTRAINTS**************************************************************************
-"""def limites_dieta_1(Model,j):
-    if j==1 or j ==2:
-        return sum(Model.x[i]*alimentos[i][j] for i in A) >= limites[j]
-    elif j==3 or j ==4 or j==5:
-        return sum(Model.x[i]*alimentos[i][j] for i in A) <= limites[j]
-
-    else:        return Constraint.Skip
-
-Model.source=Constraint(C, rule=limites_dieta_1)"""
 
 Model.res1=ConstraintList()
 for j in C:
